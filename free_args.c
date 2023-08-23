@@ -1,4 +1,4 @@
-#include simple_shell.h
+#include "simple_shell.h"
 /**
  * free_args - This fuctn frees memory allocated for an arr of strs
  * @args: Arr of strs to be freed
