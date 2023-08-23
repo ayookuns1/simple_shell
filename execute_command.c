@@ -13,6 +13,12 @@ int execute_command_with_path(char **args) {
 
     char *command_path = find_command_in_path(args[0]);
     if (command_path == NULL) {
+        return 0; 
+    }
+
+    if (access(command_path, X_OK) == -1) {
+        perror("simple_shell");
+        free(command_path);
         return 0;
     }
 
@@ -31,3 +37,4 @@ int execute_command_with_path(char **args) {
     free(command_path);
     return 1;
 }
+
