@@ -47,6 +47,6 @@ void handle_non_interactive(void)
         }
     }
 
-    free(input);
+    
 }
 
