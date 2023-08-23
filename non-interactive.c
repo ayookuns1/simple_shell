@@ -17,7 +17,7 @@ ssize_t read = getline(&input, &input_size, stdin);
 
 if (read == -1)
 {
-  
+
 exit(EXIT_SUCCESS);
 }
 
