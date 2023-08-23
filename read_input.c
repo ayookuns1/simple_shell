@@ -25,26 +25,33 @@ return (NULL);
 }
 buffer_position = 0;
 }
-while ((size_t)buffer_position < (size_t)buffer_size)
-{
-char c = buffer[buffer_position++];
-if (c == '\n')
-{
-line = malloc(line_length + 1);
-if (line == NULL)
-{
-perror("allocation error");
-exit(EXIT_FAILURE);
-}
-memcpy(line, buffer, line_length);
-line[line_length] = '\0';
-return (line);
-}
-else
-{
-line_length++;
-}
-}
-return (NULL);
+ while ((size_t)buffer_position < (size_t)buffer_size)
+    {
+        char c = buffer[buffer_position++];
+        if (c == '\n')
+        {
+            line = malloc(line_length + 1);
+            if (line == NULL)
+            {
+                perror("allocation error");
+                exit(EXIT_FAILURE);
+            }
+            memcpy(line, buffer, line_length);
+            line[line_length] = '\0';
+            return (line);
+        }
+        else
+        {
+            line_length++;
+        }
+    }
+
+    if (buffer_size == 0) 
+    {
+        free(line);
+        line = NULL;
+    }
+
+    return line;
 }
 
