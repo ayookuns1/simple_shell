@@ -7,17 +7,19 @@
  * Return: 1 (if a built-in command executes), 0 (otherwise)
  */
 
-int execute_builtin(char **args)
-{
-if (strcmp(args[0], "exit") == 0)
-{
-printf("Exiting the shell...\n");
-exit(EXIT_SUCCESS);
+int execute_builtin(char **args) {
+    if (strcmp(args[0], "exit") == 0) {
+        if (args[1] == NULL) {
+            printf("Exiting the shell...\n");
+            exit(EXIT_SUCCESS);
+        } else {
+            fprintf(stderr, "Usage: exit\n");
+            return 1; 
+        }
+    } else if (strcmp(args[0], "env") == 0) {
+        print_environment();
+        return 1;
+    }
+    return 0; 
 }
-else if (strcmp(args[0], "env") == 0)
-{
-print_environment();
-return (1);
-}
-return (0);
-}
+
