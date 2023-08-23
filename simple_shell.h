@@ -22,6 +22,9 @@ void execute_command(char **args);
 char *find_command_in_path(const char *command);
 void free_args(char **args);
 void print_environment(void);
+void handle_interactive(void);
+void handle_non_interactive(void);
+
 
 #endif /* SIMPLE_SHELL_H */
 
