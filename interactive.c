@@ -21,7 +21,7 @@ void handle_interactive(void)
 
     while (interactive)
     {
-        printf("shell$ ");
+        write(STDOUT_FILENO, "$shell ", 2);
         fflush(stdout);
         input = read_input();
 
