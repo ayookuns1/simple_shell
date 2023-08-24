@@ -19,6 +19,11 @@ int execute_command_with_path(char **args);
 void free_args(char **args);
 void print_environment(void);
 char **parse_input(char *input);
+void print_prompt(void);
+char *read_user_input(void);
+void execute_or_display_error(char **args, char *input);
+
+
 
 #endif
 

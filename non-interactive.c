@@ -27,7 +27,7 @@ void handle_non_interactive(void)
             }
             else if (!execute_command_with_path(args))
             {
-                fprintf(stderr, "Command not found: %s\n", args[0]);
+                fprintf(stderr, "%s: not found\n", args[0]);
             }
         }
 
@@ -36,4 +36,3 @@ void handle_non_interactive(void)
 
     free(input);
 }
-

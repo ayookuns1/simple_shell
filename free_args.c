@@ -9,10 +9,10 @@
 
 void free_args(char **args)
 {
-int i;
-for (i = 0; args[i] != NULL; i++)
+int index;
+for (index = 0; args[index] != NULL; index++)
 {
-free(args[i]);
+free(args[index]);
 }
 free(args);
 }

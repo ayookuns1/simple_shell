@@ -6,13 +6,15 @@
  * Fuctn iterates through the envirmnt variabls, prints the variable
  */
 
-void print_environment(void) {
-    char **env = __environ;
-    while (*env) {
-        if (*env) {
-            printf("%s\n", *env);
-        }
-        env++;
-    }
+void print_environment(void)
+{
+char **env = __environ;
+while (*env)
+{
+if (*env)
+{
+printf("%s\n", *env);
 }
-
+env++;
+}
+}

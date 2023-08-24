@@ -62,5 +62,3 @@ void handle_interactive(void)
     }
       free(input);
 }
-
-
