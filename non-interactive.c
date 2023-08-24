@@ -8,17 +8,8 @@ void handle_non_interactive(void)
     size_t input_size = 0;
     ssize_t read;
 
-    int i;
-
-    for (i = 0; i < 3; i++)
+    while ((read = getline(&input, &input_size, stdin)) != -1)
     {
-        read = getline(&input, &input_size, stdin);
-
-        if (read == -1)
-        {
-            break;
-        }
-
         if (read > 0 && input[read - 1] == '\n')
         {
             input[read - 1] = '\0';
@@ -31,13 +22,10 @@ void handle_non_interactive(void)
             if (!execute_command_with_path(args))
             {
                 fprintf(stderr, "Command not found: %s\n", args[0]);
-                continue;
             }
         }
     }
-    
-    
+
     free(input);
-   
 }
 
