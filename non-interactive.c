@@ -19,11 +19,19 @@ void handle_non_interactive(void)
 
         if (args[0] != NULL)
         {
-            if (!execute_command_with_path(args))
+            if (strcmp(args[0], "exit") == 0)
+            {
+                free(input);
+                free_args(args);
+                exit(EXIT_SUCCESS);
+            }
+            else if (!execute_command_with_path(args))
             {
                 fprintf(stderr, "Command not found: %s\n", args[0]);
             }
         }
+
+        free_args(args);
     }
 
     free(input);
